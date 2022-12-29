@@ -1,6 +1,15 @@
 import fsPromises from 'fs/promises';
 import Image from 'next/image';
-import { CaretLeft, CaretRight, EnvelopeSimple, List } from 'phosphor-react';
+import {
+  CaretLeft,
+  CaretRight,
+  ChatText,
+  EnvelopeSimple,
+  List,
+  PaperPlane,
+  Phone,
+  User,
+} from 'phosphor-react';
 import logo from '../../public/images/logo/logo.svg';
 import Footer from '../components/footer';
 
@@ -131,39 +140,86 @@ export default function Home({ listOfImages }: Images) {
         <form
           action=''
           method='post'
-          className='grid grid-cols-2 gap-x-2 px-16'
+          className='px-16 focus-within:text-dp_light-100'
         >
-          <input
-            type='text'
-            placeholder='Seu nome'
-            className='mb-2 h-5 w-auto rounded-sm bg-dp_green-800 pl-2 placeholder:text-xs'
-          />
-          <input
-            type='text'
-            placeholder='Seu sobrenome'
-            className='mb-2 h-5 w-auto rounded-sm bg-dp_green-800 pl-2 placeholder:text-xs'
-          />
-          <input
-            type='number'
-            placeholder='Seu telefone'
-            className='col-span-2 mb-2 h-5 rounded-sm bg-dp_green-800 pl-2 placeholder:text-xs'
-          />
-          <input
-            type='email'
-            placeholder='Seu e-mail'
-            className='col-span-2 mb-2 h-5 rounded-sm bg-dp_green-800 pl-2 placeholder:text-xs'
-          />
-          <input
-            type='text'
-            placeholder='Qual é o assunto?'
-            className='col-span-2 mb-2 h-5 rounded-sm bg-dp_green-800 pl-2 placeholder:text-xs'
-          />
-          <textarea
-            placeholder='Digite sua mensagem'
-            className='col-span-2 mb-2 rounded-sm bg-dp_green-800 pl-2 placeholder:translate-y-3 placeholder:text-xs'
-          ></textarea>
+          <label
+            htmlFor='name'
+            className='mb-2 flex items-center gap-1 rounded-l-sm bg-dp_green-800 pl-1.5'
+          >
+            <User size={12} className='text-dp_light-100' />
+            <input
+              type='text'
+              id='name'
+              placeholder='Seu nome'
+              className='h-8 w-full rounded-sm bg-dp_green-800 pl-1 text-xs text-dp_light-100 placeholder:text-xs'
+            />
+          </label>
 
-          <button className='col-span-2 rounded-sm bg-dp_orange-900 py-1 text-xs font-bold text-dp_light-100'>
+          <label
+            htmlFor='lastName'
+            className='mb-2 flex items-center gap-1 rounded-l-sm bg-dp_green-800 pl-1.5'
+          >
+            <User size={12} className='text-dp_light-100' />
+            <input
+              type='text'
+              id='lastName'
+              placeholder='Seu sobrenome'
+              className='h-8 w-full rounded-sm bg-dp_green-800 pl-1 text-xs text-dp_light-100 placeholder:text-xs'
+            />
+          </label>
+
+          <label
+            htmlFor='phoneNumber'
+            className='mb-2 flex items-center gap-1 rounded-l-sm bg-dp_green-800 pl-1.5'
+          >
+            <Phone size={12} className='text-dp_light-100' />
+            <input
+              type='number'
+              id='phoneNumber'
+              placeholder='Seu telefone'
+              className='h-8 w-full rounded-sm bg-dp_green-800 pl-1 placeholder:text-xs'
+            />
+          </label>
+
+          <label
+            htmlFor='lastName'
+            className='mb-2 flex items-center gap-1 rounded-l-sm bg-dp_green-800 pl-1.5'
+          >
+            <EnvelopeSimple size={12} className='text-dp_light-100' />
+            <input
+              type='email'
+              placeholder='Seu e-mail'
+              className='h-8 w-full rounded-sm bg-dp_green-800 pl-1 placeholder:text-xs'
+            />
+          </label>
+
+          <label
+            htmlFor='subject'
+            className='mb-2 flex items-center gap-1 rounded-l-sm bg-dp_green-800 pl-1.5'
+          >
+            <ChatText size={12} className='text-dp_light-100' />
+            <input
+              type='text'
+              id='subject'
+              placeholder='Qual é o assunto?'
+              className='h-8 w-full rounded-sm bg-dp_green-800 pl-1 placeholder:text-xs'
+            />
+          </label>
+
+          <label
+            htmlFor='message'
+            className='mb-2 flex items-center gap-1 rounded-l-sm bg-dp_green-800 pl-1.5'
+          >
+            <ChatText size={12} className='text-dp_light-100' />
+            <textarea
+              id='message'
+              placeholder='Digite sua mensagem'
+              className='mb-2 w-full rounded-sm bg-dp_green-800 pl-1 placeholder:translate-y-5 placeholder:text-xs'
+            ></textarea>
+          </label>
+
+          <button className='flex w-full items-center justify-center gap-2 rounded-sm bg-dp_orange-900 py-1 text-xs font-bold text-dp_light-100'>
+            <PaperPlane size={12} className='text-dp_light-100' />
             Enviar mensagem
           </button>
         </form>
