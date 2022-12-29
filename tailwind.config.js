@@ -15,7 +15,7 @@ module.exports = {
         virtual_tour: 'linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(../../public/images/home/virtual_tour.jpg)',
       },
       colors: {
-        dp_green: {
+        dp_blue: {
           800: '#203A43',
           400: '#53808F',
         },
