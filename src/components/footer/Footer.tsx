@@ -6,7 +6,7 @@ export default function Footer({ cor }: Props) {
 
   return (
     <footer
-      className={`flex w-full justify-center ${cor ?? 'bg-dp_green-800'} border-t border-dp_green-400`}
+      className={`flex w-full justify-center ${cor ?? 'bg-dp_blue-800'} border-t border-dp_blue-400`}
     >
       <img
         src='/images/logo/logo-white-horizontal.svg'
