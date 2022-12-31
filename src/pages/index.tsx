@@ -1,18 +1,29 @@
+import { useState } from 'react';
+
+import { Transition } from '@headlessui/react';
+import { EnvelopeSimple, List, X } from 'phosphor-react';
+
 import fsPromises from 'fs/promises';
 import Image from 'next/image';
-import { EnvelopeSimple, List } from 'phosphor-react';
-import logo from '../../public/images/logo/logo.svg';
+
+import logo from 'public/images/logo/logo.svg';
+
 import Clients from '../components/clients/Clients';
 import ContactForm from '../components/contactForm/ContactForm';
 import Footer from '../components/footer/Footer';
+import Menu from '../components/menu/Menu';
 
 type ListOfImages = {
   listOfImages: Array<string>;
 };
 
 export default function Home({ listOfImages }: ListOfImages) {
+  const [isShowing, setIsShowing] = useState(false);
+
   return (
     <main>
+      <Menu isShowing={isShowing} setIsShowing={setIsShowing} />
+
       <section className='flex h-screen flex-col justify-between bg-hero bg-[length:auto_130%] bg-bottom bg-no-repeat px-9 pb-20'>
         <header>
           <Image
@@ -20,7 +31,11 @@ export default function Home({ listOfImages }: ListOfImages) {
             src={logo}
             alt='Letra X com 4 hélices nas pontas formando um drone com o texto drone picture abaixo'
           />
-          <List className='absolute top-5 right-9 text-dp_blue-800' size={32} />
+          <List
+            className='absolute top-5 right-9 text-dp_blue-800'
+            size={32}
+            onClick={() => setIsShowing(!isShowing)}
+          />
         </header>
 
         <div className='flex flex-col items-center gap-10 pb-10'>
