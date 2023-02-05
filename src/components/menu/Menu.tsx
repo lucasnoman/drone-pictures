@@ -24,7 +24,7 @@ export default function Menu({ isShowing, setIsShowing }: PropsMenuVisibility) {
     >
       <div className='w-1/3 bg-dp_blue-800/90'></div>
 
-      <div className='flex w-2/3 flex-col items-center gap-8 bg-dp_blue-800 pt-4 text-dp_light-100'>
+      <div className='flex w-2/3 flex-col items-center gap-8 bg-dp_blue-800 pt-4 text-dp_light-100 md:gap-12'>
         <X
           size={32}
           className='mr-9 mt-1 self-end'
