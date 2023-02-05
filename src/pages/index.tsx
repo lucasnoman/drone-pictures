@@ -19,6 +19,12 @@ type ListOfImages = {
 export default function Home({ listOfImages }: ListOfImages) {
   const [isShowing, setIsShowing] = useState(false);
 
+  const scrollToRef = useRef<HTMLFormElement>(null);
+
+  function handleScrollToElement() {
+    scrollToRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }
+
   return (
     <main>
       <Menu isShowing={isShowing} setIsShowing={setIsShowing} />
@@ -47,7 +53,10 @@ export default function Home({ listOfImages }: ListOfImages) {
             </p>
           </div>
 
-          <button className='min:w-36 flex items-center gap-2 rounded bg-dp_blue-800 px-4 py-2 text-xl text-dp_light-100 lg:border-2 lg:border-dp_blue-800 lg:bg-transparent lg:font-bold lg:text-dp_blue-800'>
+          <button
+            onClick={handleScrollToElement}
+            className='min:w-36 flex items-center gap-2 rounded bg-dp_blue-800 px-4 py-2 text-xl text-dp_light-100 lg:border-2 lg:border-dp_blue-800 lg:bg-transparent lg:font-bold lg:text-dp_blue-800'
+          >
             <EnvelopeSimple size={24} weight='duotone' />
             Entre em contato
           </button>
@@ -115,7 +124,7 @@ export default function Home({ listOfImages }: ListOfImages) {
 
       <Clients imagesList={listOfImages} />
 
-      <ContactForm />
+      <ContactForm ref={scrollToRef} />
 
       <Footer />
     </main>

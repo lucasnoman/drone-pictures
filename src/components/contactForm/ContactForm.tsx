@@ -1,3 +1,5 @@
+import React, { forwardRef } from 'react';
+
 import {
   ChatText,
   EnvelopeSimple,
@@ -6,14 +8,15 @@ import {
   User,
 } from 'phosphor-react';
 
-export default function ContactForm() {
+const ContactForm = forwardRef<HTMLFormElement, {}>(({}, scrollToRef) => {
   return (
-    <section className='bg-dp_blue-400 py-2'>
+    <section className='bg-dp_blue-400 py-2 md:py-5'>
       <h3 className='mb-1 text-center font-bold text-dp_light-100'>
         Entre em contato
       </h3>
 
       <form
+        ref={scrollToRef}
         action=''
         method='post'
         className='px-16 focus-within:text-dp_light-100'
@@ -105,4 +108,6 @@ export default function ContactForm() {
       </form>
     </section>
   );
-}
+});
+
+export default ContactForm;
