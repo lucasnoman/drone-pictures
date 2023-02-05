@@ -20,7 +20,7 @@ export default function Clients({ imagesList }: Images) {
   };
 
   return (
-    <section className='bg-dp_light-200 py-1'>
+    <section className='bg-dp_light-200 py-1 md:py-6'>
       <h2 className='text-center text-lg font-semibold text-slate-900'>
         Nossos clientes
       </h2>
@@ -33,7 +33,7 @@ export default function Clients({ imagesList }: Images) {
 
         <div
           id='slider'
-          className='scroll h-full w-full overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide'
+          className='scroll h-full w-full overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide md:flex md:justify-center'
         >
           {imagesList.map((item, index) => {
             const dir = '/images/clients/' + item;
@@ -41,7 +41,7 @@ export default function Clients({ imagesList }: Images) {
             return (
               <span className='inline-block h-14 w-28' key={index}>
                 <img
-                  className='h-full w-full rounded-md object-cover p-2 hover:scale-110'
+                  className='h-full w-full rounded-xl object-cover p-2 hover:scale-110'
                   src={dir}
                   key={index}
                 />
