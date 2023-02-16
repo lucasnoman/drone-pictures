@@ -21,7 +21,7 @@ export default function Clients({ imagesList }: Images) {
 
   return (
     <section className='bg-dp_light-200 py-1 md:py-6'>
-      <h2 className='text-center text-lg font-semibold text-slate-900'>
+      <h2 className='text-center text-lg font-semibold text-dp_blue-800 lg:text-2xl'>
         Nossos clientes
       </h2>
 
@@ -33,15 +33,18 @@ export default function Clients({ imagesList }: Images) {
 
         <div
           id='slider'
-          className='scroll h-full w-full overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide md:flex md:justify-center'
+          className='scroll h-full w-full overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide md:flex md:justify-center lg:my-4'
         >
           {imagesList.map((item, index) => {
             const dir = '/images/clients/' + item;
 
             return (
-              <span className='inline-block h-14 w-28' key={index}>
+              <span
+                className='inline-block h-14 w-28 lg:mx-1 lg:h-36 lg:w-64'
+                key={index}
+              >
                 <img
-                  className='h-full w-full rounded-xl object-cover p-2 hover:scale-110'
+                  className='h-full w-full rounded-xl object-cover p-2 duration-150 ease-in hover:scale-110'
                   src={dir}
                   key={index}
                 />

@@ -11,7 +11,7 @@ export default function Footer({ cor }: Props) {
       <img
         src='/images/logo/logo-white-horizontal.svg'
         alt='Uma estrela com uma hélice em cada ponta simulando um drone'
-        className='w-14'
+        className='w-14 lg:w-36 lg:my-2'
       />
     </footer>
   );
