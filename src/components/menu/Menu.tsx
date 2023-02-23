@@ -1,16 +1,22 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Transition } from '@headlessui/react';
+import { X } from 'phosphor-react';
 
 import logoHorizontal from 'public/images/logo/logo-white-horizontal.svg';
-import { X } from 'phosphor-react';
 
 type PropsMenuVisibility = {
   isShowing: boolean;
   setIsShowing: Function;
+  linkOptions?: string[];
 };
 
-export default function Menu({ isShowing, setIsShowing }: PropsMenuVisibility) {
+export default function Menu({
+  isShowing,
+  setIsShowing,
+  linkOptions,
+}: PropsMenuVisibility) {
   return (
     <Transition
       show={isShowing}
@@ -24,7 +30,7 @@ export default function Menu({ isShowing, setIsShowing }: PropsMenuVisibility) {
     >
       <div className='w-1/3 bg-dp_blue-800/90'></div>
 
-      <div className='flex w-2/3 flex-col items-center gap-8 bg-dp_blue-800 pt-4 text-dp_light-100 md:gap-12'>
+      <nav className='flex w-2/3 flex-col items-center gap-8 bg-dp_blue-800 pt-4 text-dp_light-100 md:gap-12'>
         <X
           size={32}
           className='mr-9 mt-1 self-end'
@@ -40,13 +46,23 @@ export default function Menu({ isShowing, setIsShowing }: PropsMenuVisibility) {
           <hr className='w-36 border-dp_orange-900' />
         </span>
 
-        <a>HOME</a>
-        <a>INSPEÇÃO DE OBRAS</a>
-        <a>CORRETORA</a>
-        <a>CONTEÚDO 1</a>
-        <a>CONTEÚDO 2</a>
-        <a>CONTATO</a>
-      </div>
+        {linkOptions ? (
+          linkOptions.map((item, index) => (
+            <a href='' key={index}>
+              {item}
+            </a>
+          ))
+        ) : (
+          <>
+            <Link href='/'>HOME</Link>
+            <Link href='/'>INSPEÇÃO DE OBRAS</Link>
+            <Link href='/'>CORRETORA</Link>
+            <Link href='/'>CONTEÚDO 1</Link>
+            <Link href='/'>CONTEÚDO 2</Link>
+            <Link href='/'>CONTATO</Link>
+          </>
+        )}
+      </nav>
     </Transition>
   );
 }
