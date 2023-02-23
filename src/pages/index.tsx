@@ -1,9 +1,9 @@
-import React, { LegacyRef, useRef, useState } from 'react';
-
-import { EnvelopeSimple, List, X } from 'phosphor-react';
-
 import fsPromises from 'fs/promises';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRef, useState } from 'react';
+
+import { EnvelopeSimple, List } from 'phosphor-react';
 
 import logo from 'public/images/logo/logo.svg';
 
@@ -65,11 +65,13 @@ export default function Home({ listOfImages }: ListOfImages) {
 
       <section className='flex h-44 items-center justify-evenly lg:h-64 lg:justify-center lg:gap-14 lg:bg-dp_blue-800'>
         <div className='h-full w-full lg:relative lg:bottom-12 lg:h-64 lg:w-80 lg:rounded-sm lg:outline lg:outline-1 lg:outline-offset-8 lg:outline-dp_light-200'>
-          <div className='flex h-full w-full items-end justify-center bg-real_state_market bg-cover bg-center duration-100 ease-in lg:rounded-md lg:hover:scale-105'>
-            <p className='pb-3 text-center text-dp_light-100 lg:font-bold'>
-              Inspeção de obras
-            </p>
-          </div>
+          <Link href='/construction-inspection' className='h-full w-full'>
+            <div className='flex h-full w-full items-end justify-center bg-real_state_market bg-cover bg-center duration-100 ease-in lg:rounded-md lg:hover:scale-105'>
+              <p className='pb-3 text-center text-dp_light-100 lg:font-bold'>
+                Inspeção de obras
+              </p>
+            </div>
+          </Link>
         </div>
 
         <div className='flex h-full w-full items-end justify-center lg:relative lg:bottom-12 lg:h-64 lg:w-80 lg:rounded-sm lg:outline lg:outline-1 lg:outline-offset-8 lg:outline-dp_orange-900'>
