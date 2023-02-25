@@ -5,7 +5,7 @@ import Header from '../components/header/Header';
 
 import crane from '/public/images/construction_inspection/crane.jpg';
 import constructionBlueprint from '/public/images/construction_inspection/construction-blueprint.jpg';
-import engineersOnConstruction from '/public/images/construction_inspection/engineers-on-construction.jpg';
+import workersOnConstruction from '/public/images/construction_inspection/workers-on-construction.jpg';
 import buildingFacade from '/public/images/construction_inspection/building-facade.jpg';
 
 export default function ConstructionInspection() {
@@ -37,14 +37,14 @@ export default function ConstructionInspection() {
               gradient={'from-teal-800/80'}
             />
           </Link>
-          <Link href='/'>
+          <Link href='/ConstructionInspection/MonitoringWorks'>
             <Card
               name={'Acompanhamento de obras'}
-              image={engineersOnConstruction}
+              image={workersOnConstruction}
               description={
                 'Seis operários trabalhando na construção de um prédio.'
               }
-              gradient={'from-lime-900/70'}
+              gradient={'from-sky-900/70'}
             />
           </Link>
           <Link href='/'>
@@ -57,12 +57,6 @@ export default function ConstructionInspection() {
               gradient={'from-amber-900/60'}
             />
           </Link>
-          {/* <Link href='/'>
-            <Card name={'Acompanhamento de obras'} image={''} />
-          </Link>
-          <Link href='/'>
-            <Card name={'...'} image={''} />
-          </Link> */}
         </main>
       </div>
 

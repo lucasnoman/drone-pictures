@@ -65,7 +65,7 @@ export default function Home({ listOfImages }: ListOfImages) {
 
       <section className='flex h-44 items-center justify-evenly lg:h-64 lg:justify-center lg:gap-14 lg:bg-dp_blue-800'>
         <div className='h-full w-full lg:relative lg:bottom-12 lg:h-64 lg:w-80 lg:rounded-sm lg:outline lg:outline-1 lg:outline-offset-8 lg:outline-dp_light-200'>
-          <Link href='/construction-inspection' className='h-full w-full'>
+          <Link href='/ConstructionInspection' className='h-full w-full'>
             <div className='flex h-full w-full items-end justify-center bg-real_state_market bg-cover bg-center duration-100 ease-in lg:rounded-md lg:hover:scale-105'>
               <p className='pb-3 text-center text-dp_light-100 lg:font-bold'>
                 Inspeção de obras
@@ -75,11 +75,13 @@ export default function Home({ listOfImages }: ListOfImages) {
         </div>
 
         <div className='flex h-full w-full items-end justify-center lg:relative lg:bottom-12 lg:h-64 lg:w-80 lg:rounded-sm lg:outline lg:outline-1 lg:outline-offset-8 lg:outline-dp_orange-900'>
-          <div className='flex h-full w-full items-end justify-center bg-civil_construction bg-cover bg-center duration-100 ease-in lg:rounded-md lg:hover:scale-105'>
-            <p className='pb-3 text-center text-dp_light-100 lg:font-bold'>
-              Corretora de imóveis e imobiliárias
-            </p>
-          </div>
+          <Link href='/RealStateBrokerage' className='h-full w-full'>
+            <div className='flex h-full w-full items-end justify-center bg-civil_construction bg-cover bg-center duration-100 ease-in lg:rounded-md lg:hover:scale-105'>
+              <p className='pb-3 text-center text-dp_light-100 lg:font-bold'>
+                Imóveis e corretagem
+              </p>
+            </div>
+          </Link>
         </div>
       </section>
 
