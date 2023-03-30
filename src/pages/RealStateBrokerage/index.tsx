@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import Card from '../components/card/Card';
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
-
+import { InspectionCard } from '../../components/Cards/InspectionCard';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 import modelDubai from '/public/images/real_state_and_brokerage/3d_model_dubai.jpg';
 import droneEnvMonitor from '/public/images/real_state_and_brokerage/drone_env_monitor.jpg';
 import realStateFacade from '/public/images/real_state_and_brokerage/real_state_facade.jpg';
@@ -19,29 +18,27 @@ export default function realStateBrokerage() {
 
         <main className='my-4 flex flex-wrap justify-center gap-4 lg:gap-14'>
           <Link href='/'>
-            <Card
-              name={'Inspeção predial'}
+            <InspectionCard
+              name={'Modelagem 3D'}
               image={modelDubai}
-              description={'Três gruas em uma construção de um prédio.'}
+              description={'Maquete de um bairro cheio de prédios.'}
               gradient={'from-gray-900/70'}
             />
           </Link>
           <Link href='/'>
-            <Card
-              name={'Inspeções de fachadas'}
+            <InspectionCard
+              name={'Monitoramento ambiental'}
               image={droneEnvMonitor}
-              description={
-                'Prédio velho, vermelho, com a fachada descascada de porta com um lago esverdeado.'
-              }
+              description={'Um pequeno drone voando entre árvores.'}
               gradient={'from-green-900/50'}
             />
           </Link>
           <Link href='/'>
-            <Card
-              name={'Acompanhamento de obras'}
+            <InspectionCard
+              name={'Imagens para imobiliárias e corretores de imóveis'}
               image={realStateFacade}
               description={
-                'Seis operários trabalhando na construção de um prédio.'
+                'Fachada de um prédio azul e outro laranja, ambos com sacadas.'
               }
               gradient={'from-blue-800/50'}
             />

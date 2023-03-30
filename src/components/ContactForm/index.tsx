@@ -1,5 +1,3 @@
-import React, { forwardRef } from 'react';
-
 import {
   ChatText,
   EnvelopeSimple,
@@ -10,10 +8,11 @@ import {
   User,
   WhatsappLogo,
 } from 'phosphor-react';
+import { forwardRef } from 'react';
 
 const ContactForm = forwardRef<HTMLFormElement, {}>(({}, scrollToRef) => {
   return (
-    <section className='bg-dp_blue-400 py-2 md:py-5 lg:mx-auto lg:my-6 lg:h-[432px] lg:w-[700px] lg:rounded-md'>
+    <section id='form' className='bg-dp_blue-400 py-2 md:py-5 lg:mx-auto lg:my-6 lg:h-[432px] lg:w-[700px] lg:rounded-md'>
       <section className='hidden break-words text-dp_light-100 lg:absolute lg:-ml-10 lg:flex lg:h-96 lg:w-52 lg:flex-col lg:gap-5 lg:rounded-lg lg:border lg:border-dp_orange-900 lg:bg-dp_blue-800 lg:p-2'>
         <div>
           <h6 className='text-lg font-semibold'>

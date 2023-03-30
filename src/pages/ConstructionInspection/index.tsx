@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Card from '../components/card/Card';
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
+import {InspectionCard} from '../../components/Cards/InspectionCard';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 
 import crane from '/public/images/construction_inspection/crane.jpg';
 import constructionBlueprint from '/public/images/construction_inspection/construction-blueprint.jpg';
@@ -20,7 +20,7 @@ export default function ConstructionInspection() {
 
         <main className='my-4 flex flex-wrap justify-center gap-4 lg:gap-14'>
           <Link href='/'>
-            <Card
+            <InspectionCard
               name={'Inspeção predial'}
               image={crane}
               description={'Três gruas em uma construção de um prédio.'}
@@ -28,7 +28,7 @@ export default function ConstructionInspection() {
             />
           </Link>
           <Link href='/'>
-            <Card
+            <InspectionCard
               name={'Inspeções de fachadas'}
               image={buildingFacade}
               description={
@@ -38,17 +38,17 @@ export default function ConstructionInspection() {
             />
           </Link>
           <Link href='/ConstructionInspection/MonitoringWorks'>
-            <Card
+            <InspectionCard
               name={'Acompanhamento de obras'}
               image={workersOnConstruction}
               description={
-                'Seis operários trabalhando na construção de um prédio.'
+                'Sete operários trabalhando na construção de um prédio.'
               }
               gradient={'from-sky-900/70'}
             />
           </Link>
           <Link href='/'>
-            <Card
+            <InspectionCard
               name={'Inspeções para Laudo Técnico'}
               image={constructionBlueprint}
               description={

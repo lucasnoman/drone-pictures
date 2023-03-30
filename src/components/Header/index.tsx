@@ -1,19 +1,19 @@
 import Image from 'next/image';
-import { ArrowLeft, List } from 'phosphor-react';
-import logoHorizontalColored from 'public/images/logo/logo-horizontal-colored.svg';
-import logoDefaultWhite from 'public/images/logo/logo-default-white.svg';
-import { useState } from 'react';
-import Menu from '../menu/Menu';
 import Link from 'next/link';
+import { ArrowLeft, List } from 'phosphor-react';
+import logoDefaultWhite from 'public/images/logo/logo-default-white.svg';
+import logoHorizontalColored from 'public/images/logo/logo-horizontal-colored.svg';
+import { useState } from 'react';
+import Menu from '../Menu';
 
 export default function Header() {
   const [isShowing, setIsShowing] = useState(false);
 
   let linkOptions = [
-    'Página inicial',
-    'Imagens da corretora',
-    'Nossos clientes',
-    'Contato',
+    { name: 'Página inicial', link: '/' },
+    { name: 'Imagens da corretora', link: '/' },
+    { name: 'Nossos clientes', link: '/' },
+    { name: 'Contato', link: '/' },
   ];
 
   return (
@@ -51,10 +51,10 @@ export default function Header() {
             />
           </Link>
           <nav className='flex h-full items-center justify-between'>
-            {linkOptions.map((item, index) => {
+            {linkOptions.map((item) => {
               return (
-                <Link href='/' key={index}>
-                  <p>{item}</p>
+                <Link href={item.link} key={item.name} className='text-lg font-bold'>
+                  <p>{item.name}</p>
                 </Link>
               );
             })}

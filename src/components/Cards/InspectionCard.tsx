@@ -1,13 +1,13 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from "next/image"
 
 interface Props {
   name: string;
-  image: StaticImageData;
+  image: Image;
   description: string;
   gradient?: string;
 }
 
-export default function Card({ name, image, description, gradient }: Props) {
+export function InspectionCard({ name, image, description, gradient }: Props) {
   return (
     <section className='relative rounded-md shadow-lg shadow-slate-600/50 duration-150 ease-in hover:scale-[1.01]'>
       <div

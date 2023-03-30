@@ -1,15 +1,13 @@
+import { Transition } from '@headlessui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import { Transition } from '@headlessui/react';
 import { X } from 'phosphor-react';
-
 import logoHorizontal from 'public/images/logo/logo-white-horizontal.svg';
 
 type PropsMenuVisibility = {
   isShowing: boolean;
   setIsShowing: Function;
-  linkOptions?: string[];
+  linkOptions?: { name: string; link: string }[];
 };
 
 export default function Menu({
@@ -28,7 +26,10 @@ export default function Menu({
       leaveFrom='translate-x-0'
       leaveTo='translate-x-full'
     >
-      <div className='w-1/3 bg-dp_blue-800/90'></div>
+      <div
+        className='w-1/3 bg-dp_blue-800/90'
+        onClick={() => setIsShowing(!isShowing)}
+      ></div>
 
       <nav className='flex w-2/3 flex-col items-center gap-8 bg-dp_blue-800 pt-4 text-dp_light-100 md:gap-12'>
         <X
@@ -47,19 +48,34 @@ export default function Menu({
         </span>
 
         {linkOptions ? (
-          linkOptions.map((item, index) => (
-            <a href='' key={index}>
-              {item}
+          linkOptions.map((item) => (
+            <a href={item.link} key={item.name}>
+              {item.name}
             </a>
           ))
         ) : (
           <>
-            <Link href='/'>HOME</Link>
-            <Link href='/'>INSPEÇÃO DE OBRAS</Link>
-            <Link href='/'>CORRETORA</Link>
-            <Link href='/'>CONTEÚDO 1</Link>
-            <Link href='/'>CONTEÚDO 2</Link>
-            <Link href='/'>CONTATO</Link>
+            <Link
+              href='/ConstructionInspection'
+              onClick={() => setIsShowing(!isShowing)}
+            >
+              INSPEÇÃO DE OBRAS
+            </Link>
+            <Link
+              href='/RealStateBrokerage'
+              onClick={() => setIsShowing(!isShowing)}
+            >
+              IMÓVEIS E CORRETAGEM
+            </Link>
+            <Link href='/' onClick={() => setIsShowing(!isShowing)}>
+              CONTEÚDO 1
+            </Link>
+            <Link href='/' onClick={() => setIsShowing(!isShowing)}>
+              CONTEÚDO 2
+            </Link>
+            <Link href='/#form' onClick={() => setIsShowing(!isShowing)}>
+              CONTATO
+            </Link>
           </>
         )}
       </nav>

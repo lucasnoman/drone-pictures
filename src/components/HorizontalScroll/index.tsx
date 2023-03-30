@@ -1,10 +1,11 @@
 import { CaretLeft, CaretRight } from 'phosphor-react';
+import { ReactNode } from 'react';
 
 interface Images {
-  imagesList: Array<string>;
+  childrenList: string[] | HTMLElement[] | ReactNode[];
 }
 
-export default function Clients({ imagesList }: Images) {
+export default function HorizontalScroll({ childrenList }: Images) {
   const slideLeft = () => {
     const slider = document.querySelector('#slider');
     if (slider) {
@@ -35,7 +36,7 @@ export default function Clients({ imagesList }: Images) {
           id='slider'
           className='scroll h-full w-full overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide md:flex md:justify-center lg:my-4'
         >
-          {imagesList.map((item, index) => {
+          {childrenList!.map((item, index) => {
             const dir = '/images/clients/' + item;
 
             return (
