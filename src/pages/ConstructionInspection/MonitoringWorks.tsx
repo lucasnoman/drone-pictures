@@ -2,7 +2,9 @@ import fsPromises from 'fs/promises';
 import { ReactNode, useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import HorizontalScroll from '../../components/HorizontalScroll';
+
+import dynamic from 'next/dynamic'
+const ReactPlayer = dynamic(() => import("react-player/file"), { ssr: false });
 
 interface VideosProps {
   listOfVideos: string[] | ReactNode[];
@@ -31,11 +33,13 @@ function useWindowWidth() {
 
 export default function MonitoringWorks({ listOfVideos }: VideosProps) {
   const dir =
-    '/images/construction_inspection/building_inspection/monitoring_of_works/';
+    '/images/construction_inspection/building_inspection/monitoring_of_works/videos/';
   const dir2 =
-    '/images/construction_inspection/building_inspection/monitoring_of_works/thumbs';
+    '/images/construction_inspection/building_inspection/monitoring_of_works/thumbs/';
   const drone0 =
-    '/images/construction_inspection/building_inspection/monitoring_of_works/drone0.mp4';
+    '/images/construction_inspection/building_inspection/monitoring_of_works/videos/drone0.mp4';
+  const drone0p =
+    '/images/construction_inspection/building_inspection/monitoring_of_works/videos/drone0.png';
 
   return (
     <section className='relative h-full min-h-screen bg-dp_light-100'>
@@ -44,23 +48,25 @@ export default function MonitoringWorks({ listOfVideos }: VideosProps) {
         <h1 className='py-4 text-center text-4xl font-semibold text-dp_blue-800'>
           Acompanhamento de obras
         </h1>
-        <section>
+        <section className='border border-black'>
           <div
             id='videos'
-            className='grid auto-rows-auto grid-cols-1 lg:grid-cols-3 lg:gap-8'
+            className='grid auto-rows-auto grid-cols-1 border border-yellow-500 lg:grid-cols-3 lg:gap-8'
           >
-            <div className='mx-auto lg:col-span-2 lg:h-[512px]'>
-              <video
+            <div className='mx-auto aspect-video bg-green-300 lg:col-span-2 lg:h-[612px] lg:w-full'>
+              {/* <video
                 className='mb-2 h-auto w-full rounded-md bg-gray-900'
                 poster={drone0}
                 preload='auto'
                 controls
               >
                 <source src={drone0} />
-              </video>
+              </video> */}
+              <ReactPlayer controls url={drone0} />
+
             </div>
-            <div className='flex h-20 items-center justify-center gap-8 lg:flex-col'>
-              {listOfVideos.map((item, index) => {
+            <div className='flex h-20 items-center justify-center gap-8 border border-green-500 lg:flex-col'>
+              {/* {listOfVideos.map((item, index) => {
                 if (item !== 'drone6.mp4' && item !== 'drone0.mp4') {
                   return (
                     <video
@@ -75,7 +81,7 @@ export default function MonitoringWorks({ listOfVideos }: VideosProps) {
                     </video>
                   );
                 }
-              })}
+              })} */}
 
               {/* <HorizontalScroll childrenList={[]}/> */}
 

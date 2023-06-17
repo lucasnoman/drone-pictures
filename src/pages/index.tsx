@@ -37,7 +37,7 @@ export default function Home({ listOfImages }: ListOfImages) {
             loading='eager'
           />
           <List
-            className='absolute top-5 right-9 text-dp_blue-800'
+            className='absolute right-9 top-5 text-dp_blue-800'
             size={32}
             onClick={() => setIsShowing(!isShowing)}
           />
