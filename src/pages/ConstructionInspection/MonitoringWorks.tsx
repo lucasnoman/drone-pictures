@@ -3,8 +3,8 @@ import { ReactNode, useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
-import dynamic from 'next/dynamic'
-const ReactPlayer = dynamic(() => import("react-player/file"), { ssr: false });
+import dynamic from 'next/dynamic';
+const ReactPlayer = dynamic(() => import('react-player/file'), { ssr: false });
 
 interface VideosProps {
   listOfVideos: string[] | ReactNode[];
@@ -44,76 +44,84 @@ export default function MonitoringWorks({ listOfVideos }: VideosProps) {
   return (
     <section className='relative h-full min-h-screen bg-dp_light-100'>
       <Header />
-      <main className='mx-auto max-w-6xl border border-purple-500 pb-6 lg:pb-24'>
-        <h1 className='py-4 text-center text-4xl font-semibold text-dp_blue-800'>
-          Acompanhamento de obras
-        </h1>
-        <section className='border border-black'>
-          <div
-            id='videos'
-            className='grid auto-rows-auto grid-cols-1 border border-yellow-500 lg:grid-cols-3 lg:gap-8'
-          >
-            <div className='mx-auto aspect-video bg-green-300 lg:col-span-2 lg:h-[612px] lg:w-full'>
-              {/* <video
-                className='mb-2 h-auto w-full rounded-md bg-gray-900'
-                poster={drone0}
-                preload='auto'
-                controls
-              >
-                <source src={drone0} />
-              </video> */}
-              <ReactPlayer controls url={drone0} />
+      <main className='mx-auto max-w-6xl pb-6 lg:pb-24'>
+        <section className='mt-6 border border-black'>
+          <h1 className='py-4 text-center text-4xl font-semibold text-dp_blue-800'>
+            Acompanhamento de obras
+          </h1>
 
-            </div>
-            <div className='flex h-20 items-center justify-center gap-8 border border-green-500 lg:flex-col'>
-              {/* {listOfVideos.map((item, index) => {
-                if (item !== 'drone6.mp4' && item !== 'drone0.mp4') {
-                  return (
-                    <video
-                      key={index}
-                      className='h-20 w-20 object-cover'
-                      poster={dir + item}
-                      muted
-                      loop
-                      controls
-                    >
-                      <source src={dir + item} type='video/mp4' />;
-                    </video>
-                  );
-                }
-              })} */}
+          <div id='videos' className='grid gap-2 lg:grid-cols-3 lg:grid-rows-3'>
+            <iframe
+              src='https://www.youtube.com/embed/xcp7ViC1uWI'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              allowfullscreen
+              // className='aspect-video h-auto w-full rounded-lg lg:col-span-2'
+              className='aspect-video h-full self-center lg:col-span-2 lg:row-span-3'
+            ></iframe>
 
-              {/* <HorizontalScroll childrenList={[]}/> */}
-
-              {/* <div className='h-14 w-14 bg-yellow-300'></div>
-              <div className='h-14 w-14 bg-yellow-500'></div>
-              <div className='h-14 w-14 bg-yellow-700'></div>
-              <div className='h-14 w-14 bg-yellow-900'></div> */}
-            </div>
+            <iframe
+              src='https://www.youtube.com/embed/xcp7ViC1uWI'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              allowfullscreen
+              className='col-span-1 row-span-1 aspect-video justify-self-end'
+            ></iframe>
+            <iframe
+              src='https://www.youtube.com/embed/xcp7ViC1uWI'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              allowfullscreen
+              className='col-span-1 row-span-1 aspect-video justify-self-end'
+            ></iframe>
+            <iframe
+              src='https://www.youtube.com/embed/xcp7ViC1uWI'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              allowfullscreen
+              className='col-span-1 row-span-1 aspect-video justify-self-end'
+            ></iframe>
           </div>
+        </section>
 
-          {/* Parte do texto */}
-          <div id='text' className='my-4 border border-pink-400'>
+        {/* TODO - texto explicativo */}
+        <section className='my-20'>
+          <h1 className='text-center text-4xl font-semibold text-dp_blue-800'>
+            Texto sobre o acompanhamento de obras
+          </h1>
+          <div id='text' className='mt-6 text-justify'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Voluptatem, recusandae sint libero error quo, consequatur odit
             quibusdam debitis quos commodi earum iure unde ut? Laudantium ut non
             quibusdam? Vitae, ut.
           </div>
+        </section>
 
-          {/* Trabalhos recentes */}
+        {/* TODO - trabalhos recentes */}
+        <section className='mb-4'>
+          <h1 className='mb-6 text-center text-4xl font-semibold text-dp_blue-800'>
+            Trabalhos recentes
+          </h1>
           <div
             id='recent-jobs'
-            className='grid grid-cols-3 place-items-center gap-y-2 border border-green-500'
+            className='grid grid-cols-4 place-items-center gap-y-2 border border-green-500'
           >
-            <div className='h-20 w-20 rounded-lg bg-teal-400'></div>
-            <div className='h-20 w-20 rounded-lg bg-teal-600'></div>
-            <div className='h-20 w-20 rounded-lg bg-teal-600'></div>
-            <div className='h-20 w-20 rounded-lg bg-teal-700'></div>
-            <div className='h-20 w-20 rounded-lg bg-teal-800'></div>
-            <div className='h-20 w-20 rounded-lg bg-teal-900'></div>
+            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-200'></div>
+            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-300'></div>
+            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-400'></div>
+            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-600'></div>
+            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-600'></div>
+            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-700'></div>
+            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-800'></div>
+            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-900'></div>
           </div>
         </section>
       </main>
+
       <footer className='absolute bottom-0 w-full'>
         <Footer />
       </footer>
