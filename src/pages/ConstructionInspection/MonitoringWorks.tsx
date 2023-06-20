@@ -45,51 +45,54 @@ export default function MonitoringWorks({ listOfVideos }: VideosProps) {
     <section className='relative h-full min-h-screen bg-dp_light-100'>
       <Header />
       <main className='mx-auto max-w-6xl pb-6 lg:pb-24'>
-        <section className='mt-6 border border-black'>
+        {/* NOTE - vídeos principais */}
+        <section className='mx-9 mt-6 lg:mx-auto'>
           <h1 className='py-4 text-center text-4xl font-semibold text-dp_blue-800'>
             Acompanhamento de obras
           </h1>
 
-          <div id='videos' className='grid gap-2 lg:grid-cols-3 lg:grid-rows-3'>
+          <div
+            id='videos'
+            className='grid grid-cols-3 justify-items-center gap-3 lg:grid-rows-3 lg:gap-2'
+          >
             <iframe
               src='https://www.youtube.com/embed/xcp7ViC1uWI'
               title='YouTube video player'
               frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
               allowfullscreen
-              // className='aspect-video h-auto w-full rounded-lg lg:col-span-2'
-              className='aspect-video h-full self-center lg:col-span-2 lg:row-span-3'
+              className='col-span-3 aspect-video w-full rounded-md lg:col-span-2 lg:row-span-3 lg:h-full lg:w-auto lg:self-center'
             ></iframe>
 
             <iframe
-              src='https://www.youtube.com/embed/xcp7ViC1uWI'
+              src='https://www.youtube.com/embed/qfp8b1e9vIk'
               title='YouTube video player'
               frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              className='aspect-square w-24 rounded-md lg:col-span-1 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
               allowfullscreen
-              className='col-span-1 row-span-1 aspect-video justify-self-end'
             ></iframe>
             <iframe
-              src='https://www.youtube.com/embed/xcp7ViC1uWI'
+              src='https://www.youtube.com/embed/Pd4tVUBcfTo'
               title='YouTube video player'
               frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              className='aspect-square w-24 rounded-md lg:col-span-1 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
               allowfullscreen
-              className='col-span-1 row-span-1 aspect-video justify-self-end'
             ></iframe>
             <iframe
-              src='https://www.youtube.com/embed/xcp7ViC1uWI'
+              src='https://www.youtube.com/embed/WZkpS7gDQiU'
               title='YouTube video player'
               frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              className='aspect-square w-24 rounded-md lg:col-span-1 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
               allowfullscreen
-              className='col-span-1 row-span-1 aspect-video justify-self-end'
             ></iframe>
           </div>
         </section>
 
         {/* TODO - texto explicativo */}
-        <section className='my-20'>
+        <section className='my-8 border-y border-dp_orange-900 px-8 py-4 lg:my-20 lg:border-0 lg:py-0'>
           <h1 className='text-center text-4xl font-semibold text-dp_blue-800'>
             Texto sobre o acompanhamento de obras
           </h1>
@@ -102,22 +105,25 @@ export default function MonitoringWorks({ listOfVideos }: VideosProps) {
         </section>
 
         {/* TODO - trabalhos recentes */}
-        <section className='mb-4'>
+        <section className='mb-4 px-5 lg:px-0'>
           <h1 className='mb-6 text-center text-4xl font-semibold text-dp_blue-800'>
             Trabalhos recentes
           </h1>
+
           <div
             id='recent-jobs'
-            className='grid grid-cols-4 place-items-center gap-y-2 border border-green-500'
+            className='grid grid-cols-3 place-items-center gap-y-2 lg:grid-cols-4'
           >
-            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-200'></div>
-            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-300'></div>
-            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-400'></div>
-            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-600'></div>
-            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-600'></div>
-            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-700'></div>
-            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-800'></div>
-            <div className='aspect-square h-20 w-20 rounded-lg bg-teal-900'></div>
+            {[200, 300, 400, 500, 600, 700, 800, 900].map((item) => {
+              let url = 'https://source.unsplash.com/featured';
+              if (item === 800 || item === 900) {
+                let a = `aspect-square border border-black h-20 w-20 rounded-lg lg:h-32 lg:w-32 hidden lg:block`;
+                return <img src={url} alt='aa' className={a} />;
+              } else {
+                let b = `aspect-square border border-black h-20 w-20 rounded-lg lg:h-32 lg:w-32`;
+                return <img src={url} alt='aa' className={b} />;
+              }
+            })}
           </div>
         </section>
       </main>
