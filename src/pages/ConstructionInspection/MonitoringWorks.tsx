@@ -1,48 +1,25 @@
-import fsPromises from 'fs/promises';
-import { ReactNode, useEffect, useState } from 'react';
+import { useState } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import ImageModal from '../../components/ImageModal';
 
-import dynamic from 'next/dynamic';
-const ReactPlayer = dynamic(() => import('react-player/file'), { ssr: false });
+export default function MonitoringWorks() {
+  let [isOpen, setIsOpen] = useState(false);
 
-interface VideosProps {
-  listOfVideos: string[] | ReactNode[];
-}
+  let url = 'https://source.unsplash.com/featured';
 
-function useWindowWidth() {
-  const [width, setWidth] = useState<number>(0);
+  function closeModal() {
+    setIsOpen(false);
+  }
 
-  useEffect(() => {
-    function handleWindowSizeChange() {
-      setWidth(window.innerWidth);
-    }
-
-    handleWindowSizeChange();
-
-    // NOTE - habilitar isso fará a função ser chamada sempre que a tela mudar de tamanho
-    // window.addEventListener('resize', handleWindowSizeChange);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange);
-    };
-  }, []);
-
-  return width;
-}
-
-export default function MonitoringWorks({ listOfVideos }: VideosProps) {
-  const dir =
-    '/images/construction_inspection/building_inspection/monitoring_of_works/videos/';
-  const dir2 =
-    '/images/construction_inspection/building_inspection/monitoring_of_works/thumbs/';
-  const drone0 =
-    '/images/construction_inspection/building_inspection/monitoring_of_works/videos/drone0.mp4';
-  const drone0p =
-    '/images/construction_inspection/building_inspection/monitoring_of_works/videos/drone0.png';
+  function openModal() {
+    setIsOpen(true);
+  }
 
   return (
     <section className='relative h-full min-h-screen bg-dp_light-100'>
+      <ImageModal closeModal={closeModal} isOpen={isOpen} url={url} />
+
       <Header />
       <main className='mx-auto max-w-6xl pb-6 lg:pb-24'>
         {/* NOTE - vídeos principais */}
@@ -53,40 +30,32 @@ export default function MonitoringWorks({ listOfVideos }: VideosProps) {
 
           <div
             id='videos'
-            className='grid grid-cols-3 justify-items-center gap-3 lg:grid-rows-3 lg:gap-2'
+            className='grid grid-cols-3 justify-items-center gap-3 lg:grid-cols-7 lg:grid-rows-3 lg:gap-2'
           >
             <iframe
               src='https://www.youtube.com/embed/xcp7ViC1uWI'
               title='YouTube video player'
-              frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-              allowfullscreen
-              className='col-span-3 aspect-video w-full rounded-md lg:col-span-2 lg:row-span-3 lg:h-full lg:w-auto lg:self-center'
+              className='col-span-3 aspect-video w-full rounded-md lg:col-span-5 lg:row-span-3 lg:h-auto lg:w-full lg:self-center'
             ></iframe>
 
             <iframe
               src='https://www.youtube.com/embed/qfp8b1e9vIk'
               title='YouTube video player'
-              frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-              className='aspect-square w-24 rounded-md lg:col-span-1 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
-              allowfullscreen
+              className='aspect-square w-24 rounded-md lg:col-span-2 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
             ></iframe>
             <iframe
               src='https://www.youtube.com/embed/Pd4tVUBcfTo'
               title='YouTube video player'
-              frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-              className='aspect-square w-24 rounded-md lg:col-span-1 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
-              allowfullscreen
+              className='aspect-square w-24 rounded-md lg:col-span-2 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
             ></iframe>
             <iframe
               src='https://www.youtube.com/embed/WZkpS7gDQiU'
               title='YouTube video player'
-              frameborder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-              className='aspect-square w-24 rounded-md lg:col-span-1 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
-              allowfullscreen
+              className='aspect-square w-24 rounded-md lg:col-span-2 lg:row-span-1 lg:aspect-video lg:w-auto lg:justify-self-end'
             ></iframe>
           </div>
         </section>
@@ -115,13 +84,28 @@ export default function MonitoringWorks({ listOfVideos }: VideosProps) {
             className='grid grid-cols-3 place-items-center gap-y-2 lg:grid-cols-4'
           >
             {[200, 300, 400, 500, 600, 700, 800, 900].map((item) => {
-              let url = 'https://source.unsplash.com/featured';
               if (item === 800 || item === 900) {
                 let a = `aspect-square border border-black h-20 w-20 rounded-lg lg:h-32 lg:w-32 hidden lg:block`;
-                return <img src={url} alt='aa' className={a} />;
+                return (
+                  <button
+                    type='button'
+                    className='cursor-pointer'
+                    onClick={openModal}
+                  >
+                    <img src={url} alt='aa' className={a} />
+                  </button>
+                );
               } else {
                 let b = `aspect-square border border-black h-20 w-20 rounded-lg lg:h-32 lg:w-32`;
-                return <img src={url} alt='aa' className={b} />;
+                return (
+                  <button
+                    type='button'
+                    className='cursor-pointer'
+                    onClick={openModal}
+                  >
+                    <img src={url} alt='aa' className={b} />
+                  </button>
+                );
               }
             })}
           </div>
@@ -133,25 +117,4 @@ export default function MonitoringWorks({ listOfVideos }: VideosProps) {
       </footer>
     </section>
   );
-}
-
-export async function getStaticProps() {
-  const dir2 =
-    'public/images/construction_inspection/building_inspection/monitoring_of_works/thumbs';
-  const drone0 =
-    'public/images/construction_inspection/building_inspection/monitoring_of_works/drone0.mp4';
-
-  const dir =
-    './public/images/construction_inspection/building_inspection/monitoring_of_works';
-
-  const listOfVideos: Array<string> = [];
-  const files = await fsPromises.readdir(dir);
-
-  files.forEach((fileName) => {
-    listOfVideos.push(fileName);
-  });
-
-  return {
-    props: { listOfVideos },
-  };
 }
