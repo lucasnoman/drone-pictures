@@ -7,11 +7,12 @@ module.exports = {
         sans: 'Inter, sans-serif',
       },
       backgroundImage: {
+        background_waves: 'url(../../public/images/background_waves.svg)',
+        content_1: 'url(../../public/images/home/content_1.jpg)',
+        content_2: 'url(../../public/images/home/content_2.jpg)',
         hero: 'url(../../public/images/home/hero.jpg)',
         civil_construction: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(40,40,40, 0.8) 85%), url(../../public/images/home/civil_construction.jpg)',
         real_state_market: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(40,40,40, 0.8) 85%), url(../../public/images/home/real_state_market.jpg)',
-        content_1: 'url(../../public/images/home/content_1.jpg)',
-        content_2: 'url(../../public/images/home/content_2.jpg)',
         virtual_tour: 'linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(../../public/images/home/virtual_tour.jpg)',
       },
       colors: {

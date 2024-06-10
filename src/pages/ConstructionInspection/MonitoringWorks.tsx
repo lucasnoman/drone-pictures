@@ -6,8 +6,6 @@ import ImageModal from '../../components/ImageModal';
 export default function MonitoringWorks() {
   let [isOpen, setIsOpen] = useState(false);
 
-  let url = 'https://source.unsplash.com/featured';
-
   function closeModal() {
     setIsOpen(false);
   }
@@ -15,6 +13,8 @@ export default function MonitoringWorks() {
   function openModal() {
     setIsOpen(true);
   }
+
+  let url = 'https://source.unsplash.com/featured';
 
   return (
     <section className='relative h-full min-h-screen bg-dp_light-100'>
@@ -74,7 +74,8 @@ export default function MonitoringWorks() {
         </section>
 
         {/* TODO - trabalhos recentes */}
-        <section className='mb-4 px-5 lg:px-0'>
+        {/* TODO - imagem de fundo com as "ondas" */}
+        <section className='mb-4 px-5 lg:px-0 bg-background_waves'>
           <h1 className='mb-6 text-center text-4xl font-semibold text-dp_blue-800'>
             Trabalhos recentes
           </h1>
